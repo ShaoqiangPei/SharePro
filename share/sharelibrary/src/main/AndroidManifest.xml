@@ -1,0 +1,20 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.sharelibrary" >
+
+    <!--  需要权限  -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+
+    <application>
+    <!-- QQ互联第三方登录 -->
+    <activity
+        android:name="com.tencent.connect.common.AssistActivity"
+        android:configChanges="orientation|keyboardHidden"
+        android:screenOrientation="behind"
+        android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+    </application>
+
+
+</manifest>
