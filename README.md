@@ -72,8 +72,6 @@ public class AppContext extends Application {
   </application>
 ```
 #### 三.使用说明
-[QQ登录](https://github.com/ShaoqiangPei/SharePro/blob/main/read/QQ%E7%99%BB%E5%BD%95%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.md) ————  qq第三方登录功能 
-
-
-
+[QQ登录](https://github.com/ShaoqiangPei/SharePro/blob/main/read/QQ%E7%99%BB%E5%BD%95%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.md) ————  qq第三方登录功能  
+[邮箱验证(EmailSender)](https://github.com/ShaoqiangPei/SharePro/blob/main/read/EmailSender%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.md) ————  自动发邮件(可实现邮箱验证功能) 
 
