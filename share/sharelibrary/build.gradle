@@ -79,7 +79,9 @@ dependencies {
     androidTestImplementation librarys.androidTestImplementation_test_ext_junit
     androidTestImplementation librarys.androidTestImplementation_support_espresso
     api files('libs/open_sdk_r8353806_lite.jar')
-
+    implementation files('libs/activation.jar')
+    implementation files('libs/additionnal.jar')
+    implementation files('libs/mail.jar')
     //gson
     implementation librarys.implementation_gson
 }
