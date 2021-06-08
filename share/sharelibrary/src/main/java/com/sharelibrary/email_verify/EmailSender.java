@@ -455,6 +455,26 @@ public class EmailSender {
         transport.close();
     }
 
+    /***
+     * 发送结果
+     *
+     * @param errorMessage 错误信息
+     * @param success 是否发送成功
+     */
+    private void sendResult(String errorMessage,boolean success){
+        //发送返回结果
+        if(mOnSendEmailListener!=null) {
+            android.os.Message handleMessage=null;
+            if(success){
+                handleMessage= mEmailHandler.obtainMessage(EmailSender.SUCCESS_CODE);
+            }else{
+                handleMessage= mEmailHandler.obtainMessage(EmailSender.FAILED_CODE, errorMessage);
+            }
+            mEmailHandler.sendMessage(handleMessage);
+        }
+    }
+
+
     private class EmailHandler<T> extends Handler {
 
         //弱引用(引用外部类)
@@ -484,25 +504,6 @@ public class EmailSender {
         }
     }
 
-    /***
-     * 发送结果
-     *
-     * @param errorMessage 错误信息
-     * @param success 是否发送成功
-     */
-    private void sendResult(String errorMessage,boolean success){
-        //发送返回结果
-        if(mOnSendEmailListener!=null) {
-            android.os.Message handleMessage=null;
-            if(success){
-                handleMessage= mEmailHandler.obtainMessage(EmailSender.SUCCESS_CODE);
-            }else{
-                handleMessage= mEmailHandler.obtainMessage(EmailSender.FAILED_CODE, errorMessage);
-            }
-            mEmailHandler.sendMessage(handleMessage);
-        }
-    }
-
     private interface OnEmailHandListener{
         void handle(Object obj, android.os.Message msg);
     }
@@ -513,5 +514,7 @@ public class EmailSender {
         //邮件发送失败
         void failed(String errorMessage);
     }
+
+
 
 }

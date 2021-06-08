@@ -35,6 +35,9 @@ android {
         targetCompatibility 1.8
     }
 
+    //加载短信配置
+    loadSmsConfig()
+
     //==========以下添加是为了让自己的库发布到JitPack上仍能显示注释==================
     // 打包源码jar
     task sourcesJar(type: Jar) {
@@ -70,6 +73,34 @@ android {
     }
 //==========以上添加是为了让自己的库发布到JitPack上仍能显示注释==================
 
+}
+
+//加载短信配置
+def loadSmsConfig(){
+    def key="244e915baae1a"
+    def secret="b5eb7df4657dbde9b36b673cef463a3e"
+
+    File file=project.rootProject.file('mob_sms.properties')
+    if(file.exists()){
+        Properties pro = new Properties()
+        pro.load(file.newDataInputStream())
+
+        println "===========加载mob_sms.properties配置==========="
+        key=pro.getProperty('MOB_APP_KEY')
+        secret=pro.getProperty('MOB_APP_SECRET')
+    }else{
+        print "===========mob_sms.properties配置文件不存在,采用默认key和secret==================="
+    }
+
+    //添加mob插件(短信验证)
+    apply plugin: 'com.mob.sdk'
+    // 在MobSDK的扩展中注册SMSSDK的相关信息
+    MobSDK {
+        appKey key
+        appSecret secret
+        spEdition "fp" // 设定MobSDK为隐私协议适配版本
+        SMSSDK {}
+    }
 }
 
 dependencies {
