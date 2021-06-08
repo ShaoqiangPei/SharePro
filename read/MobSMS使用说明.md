@@ -6,7 +6,7 @@
 ### 使用说明
 #### 一. 创建应用
 在 [**mob**](https://www.mob.com/) 上创建应用，获取`App key`和`App secret`，具体创建可参考  
-[Android短信验证再研究](https://www.jianshu.com/p/0524f82bf269)
+[Android短信验证再研究](https://www.jianshu.com/p/0524f82bf269)  
 目前一般用户的短信使用标准是 单个app`一万条/月`免费短信，若用户量比较大，则需付费使用。
 #### 二. 依赖
 在你的 `project`对应的`builg.gradle`中添加以下依赖：
