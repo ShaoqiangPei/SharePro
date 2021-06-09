@@ -1,18 +1,11 @@
-package com.sharelibrary.mob_sms_verify;
+package com.sharelibrary.util;
 
 import android.os.Handler;
 import android.os.Message;
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParser;
 import com.mob.MobSDK;
 import com.sharelibrary.entity.SmsError;
 import com.sharelibrary.entity.ZoneData;
-import com.sharelibrary.util.ShareLog;
-import com.sharelibrary.util.StringUtil;
 import java.lang.ref.WeakReference;
-import java.util.ArrayList;
 import java.util.List;
 import cn.smssdk.EventHandler;
 import cn.smssdk.SMSSDK;
@@ -180,7 +173,7 @@ public class MobSMS {
                 if (what == SMSSDK.RESULT_COMPLETE) {
                     switch (msg.arg1) {
                         case SMSSDK.EVENT_GET_SUPPORTED_COUNTRIES://返回支持发送验证码的国家列表
-                            List<ZoneData>list=getZoneList(msg.obj);
+                            List<ZoneData>list=ConverUtil.getZoneList(msg.obj);
                             mobSMSListener.getSupportCounties(list);
                             break;
                         case SMSSDK.EVENT_GET_VERIFICATION_CODE://获取验证码成功
@@ -197,7 +190,7 @@ public class MobSMS {
                     }
                 } else {
                     //失败
-                    SmsError smsError=getSmsError(msg.obj.toString());
+                    SmsError smsError=ConverUtil.getSmsError(msg.obj.toString());
                     mobSMSListener.verifyFailed(smsError.getDetail());
                 }
             }
@@ -206,21 +199,5 @@ public class MobSMS {
         }
     }
 
-    private List<ZoneData> getZoneList(Object data){
-        Gson gson=new Gson();
-        String json= gson.toJson(data);
-        List<ZoneData> list = new ArrayList<>();
-        JsonArray array = new JsonParser().parse(json).getAsJsonArray();
-        for(final JsonElement elem : array){
-            list.add(gson.fromJson(elem, ZoneData.class));
-        }
-        return list;
-    }
-
-    private SmsError getSmsError(String json){
-        Gson gson=new Gson();
-        SmsError smsError = gson.fromJson(json, SmsError.class);
-        return smsError;
-    }
 
 }
