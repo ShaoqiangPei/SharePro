@@ -48,7 +48,10 @@ MobSDK {
  //提交隐私协议(mobSMS为MobSMS对象)
  mobSMS.submitPolicy();
 ```
-#### 三.MobSMS方法简介
+#### 三. 将MobSMS文件拷贝到自己的项目中
+MobSMS类地址为
+
+#### 四.MobSMS方法简介
 封装类`MobSMS`中的一些主要方法：
 ```
     //注册短信回调
@@ -92,7 +95,7 @@ MobSDK {
    /**注销短信监听**/
     public void unRegister() 
 ```
-#### 四.MobSMS在Activity中使用
+#### 五.MobSMS在Activity中使用
 下面贴出`MobSMS`在`Activity`中使用代码:
 ```
 public class TempActivity extends AppCompatActivity implements View.OnClickListener{
