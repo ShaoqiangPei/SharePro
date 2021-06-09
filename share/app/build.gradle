@@ -44,7 +44,3 @@ dependencies {
 
 }
 
-
-
-//添加mob插件(短信验证)
-apply plugin: 'com.mob.sdk'

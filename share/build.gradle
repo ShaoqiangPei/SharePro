@@ -6,10 +6,6 @@ buildscript {
         google()
         jcenter()
 
-        //配置Mob Maven库(短信验证)
-        maven {
-            url "https://mvn.mob.com/android"
-        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.1'
@@ -17,8 +13,6 @@ buildscript {
         //上传jitpack添加maven
         classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
 
-        //mob的短信验证
-        classpath "com.mob.sdk:MobSDK:2018.0319.1724"
     }
 }
 

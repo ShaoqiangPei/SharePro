@@ -35,8 +35,8 @@ android {
         targetCompatibility 1.8
     }
 
-    //加载短信配置
-    loadSmsConfig()
+//    //加载短信配置
+//    loadSmsConfig()
 
     //==========以下添加是为了让自己的库发布到JitPack上仍能显示注释==================
     // 打包源码jar

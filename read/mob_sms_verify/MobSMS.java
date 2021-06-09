@@ -14,7 +14,6 @@ import com.sharelibrary.util.StringUtil;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
-
 import cn.smssdk.EventHandler;
 import cn.smssdk.SMSSDK;
 
