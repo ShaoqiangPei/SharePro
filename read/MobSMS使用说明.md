@@ -49,7 +49,7 @@ MobSDK {
  mobSMS.submitPolicy();
 ```
 #### 三. 将MobSMS文件拷贝到自己的项目中
-MobSMS类地址为
+MobSMS类地址为 [MobSMS.java](https://github.com/ShaoqiangPei/SharePro/blob/main/read/mob_sms_verify/MobSMS.java)
 
 #### 四.MobSMS方法简介
 封装类`MobSMS`中的一些主要方法：
