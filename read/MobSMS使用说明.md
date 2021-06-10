@@ -49,7 +49,8 @@ MobSDK {
  mobSMS.submitPolicy();
 ```
 #### 三. 将MobSMS文件拷贝到自己的项目中
-MobSMS类地址为 [MobSMS.java](https://github.com/ShaoqiangPei/SharePro/blob/main/read/mob_sms_verify/MobSMS.java)
+MobSMS类地址为 [MobSMS.java](https://github.com/ShaoqiangPei/SharePro/blob/main/read/mob_sms_verify/MobSMS.java)  
+你可能会用到的短信倒计时工具类 [CountDownTimerHelper](https://github.com/ShaoqiangPei/SharePro/blob/main/read/CountDownTimerHelper%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.md)
 
 #### 四.MobSMS方法简介
 封装类`MobSMS`中的一些主要方法：
