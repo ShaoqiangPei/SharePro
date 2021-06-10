@@ -20,11 +20,17 @@ public class CountDownTimerHelper extends CountDownTimer {
     private Button mBtn;
     private int mEnabledColor;//按钮可点击背景色
     private int mUnEnabledColor; //按钮不可点击背景色
-    private Context mContext;
+    private OnFinishListener mOnFinishListener;
 
-    public CountDownTimerHelper(Context context,Button btn,long millisInFuture, long countDownInterval) {
+    /***
+     * 初始化
+     *
+     * @param btn 需要设置倒计时的button
+     * @param millisInFuture 倒计时总时间以，单位为毫秒(如要进行10秒倒计时，则为10000)
+     * @param countDownInterval 时间间隔，单位毫秒
+     */
+    public CountDownTimerHelper(Button btn,long millisInFuture, long countDownInterval) {
         super(millisInFuture, countDownInterval);
-        this.mContext=context;
         this.mBtn=btn;
     }
 
@@ -39,6 +45,11 @@ public class CountDownTimerHelper extends CountDownTimer {
         this.mEnabledColor=enabledColor;
         this.mUnEnabledColor=unEnabledColor;
         return this;
+    }
+
+    /**计时器结束监听**/
+    public void setOnFinishListener(OnFinishListener listener){
+        this.mOnFinishListener=listener;
     }
 
     /**开启倒计时**/
@@ -62,7 +73,8 @@ public class CountDownTimerHelper extends CountDownTimer {
         //设置按钮上的文字，获取截取设置为红色
         ForegroundColorSpan span=new ForegroundColorSpan(Color.RED);
         SpannableString spannableString=new SpannableString(mBtn.getText().toString());
-        spannableString.setSpan(span, 0, 2, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);//将倒计时的时间设置为红色
+        int lastIndex=mBtn.getText().toString().indexOf("秒");
+        spannableString.setSpan(span, 0, lastIndex, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);//将倒计时的时间设置为红色
         mBtn.setText(spannableString);
     }
 
@@ -73,7 +85,13 @@ public class CountDownTimerHelper extends CountDownTimer {
         if (mEnabledColor != 0) {
             mBtn.setBackgroundResource(mEnabledColor);  //还原背景色
         }
+        if(mOnFinishListener!=null){
+            mOnFinishListener.onFinish();
+        }
     }
 
+    public interface OnFinishListener{
+        void onFinish();
+    }
 
 }
