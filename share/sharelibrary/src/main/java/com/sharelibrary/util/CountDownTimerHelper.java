@@ -29,7 +29,7 @@ public class CountDownTimerHelper extends CountDownTimer {
     }
 
     /***
-     * 设置按钮点击和非点击时背景色
+     * 设置按钮点击和非点击时背景色(可选方法)
      *
      * @param enabledColor: 可点击背景色,如: R.color.red 或 R.drawable.bg_identify_code_normal
      * @param unEnabledColor: 不可点击背景色,如: R.color.gray 或 R.drawable.bg_identify_code_press
