@@ -68,13 +68,15 @@ public class CountDownTimerHelper extends CountDownTimer {
         if(mUnEnabledColor!=0) {
             mBtn.setBackgroundResource(mUnEnabledColor);//设置按钮为灰色(不可点击)
         }
-        mBtn.setText(millisUntilFinished/1000+"秒后可重新发送");
+        mBtn.setText("重新发送("+millisUntilFinished/1000+"秒)");
 
         //设置按钮上的文字，获取截取设置为红色
+        String text=mBtn.getText().toString();
         ForegroundColorSpan span=new ForegroundColorSpan(Color.RED);
-        SpannableString spannableString=new SpannableString(mBtn.getText().toString());
-        int lastIndex=mBtn.getText().toString().indexOf("秒");
-        spannableString.setSpan(span, 0, lastIndex, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);//将倒计时的时间设置为红色
+        SpannableString spannableString=new SpannableString(text);
+        int firstIndex=text.indexOf("(")+1;
+        int lastIndex=text.indexOf("秒");
+        spannableString.setSpan(span, firstIndex, lastIndex, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);//将倒计时的时间设置为红色
         mBtn.setText(spannableString);
     }
 
