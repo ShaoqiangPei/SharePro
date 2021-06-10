@@ -7,12 +7,14 @@
 ```
 /**初始化
 *
-* context 上下文
 * button  需要设置倒计时的button
 * millisInFuture 倒计时总时间以，单位为毫秒(如要进行10秒倒计时，则为10000)
 * countDownInterval 时间间隔，单位毫秒
 **/
- mCountDownTimerHelper=new CountDownTimerHelper(context,button,millisInFuture,countDownInterval);
+ mCountDownTimerHelper=new CountDownTimerHelper(button,millisInFuture,countDownInterval);
+ 
+/**计时器结束监听**/
+public void setOnFinishListener(OnFinishListener listener)
 
 /***
  * 设置按钮点击和非点击时背景色(可选方法)
