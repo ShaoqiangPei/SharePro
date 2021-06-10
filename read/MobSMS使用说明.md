@@ -239,4 +239,9 @@ public class TempActivity extends AppCompatActivity implements View.OnClickListe
     }
 }
 ```
-
+#### 六.混淆
+```
+-keep class com.mob.**{*;}
+-keep class cn.smssdk.**{*;}
+-dontwarn com.mob.**
+```
